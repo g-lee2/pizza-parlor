@@ -17,8 +17,11 @@ Pizza.prototype.sizeCost = function() {
   } else if (this.size === "medium") {
     this.price += 4;
     return this.price; 
-  } else {
+  } else if (this.size === "X-Large") {
     this.price += 6;
     return this.price; 
-  } 
+  } else {
+    this.price += 8;
+    return this.price; 
+  }
 }

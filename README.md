@@ -18,7 +18,7 @@ Expected Output: 11
 
 Describe: Pizza.prototype.sizeCost = function()
 
-Test: "It should return the new price of the pizza when different toppings are added"
+Test: "It should return the new price of the pizza depending on the size"
 Code: 
 const myPizza = new Pizza(["onion", "pepperoni"], "medium");
 const myPizza.sizeCost();
