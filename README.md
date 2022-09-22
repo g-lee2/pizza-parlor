@@ -10,5 +10,5 @@ Expected Output: Pizza { toppings: ["onion", "pepperoni"], "medium", 10}
 
 Describe: Pizza.prototype.toppingCost = function()
 Test: "It should return the new price of the pizza when different toppings are added"
-Code: const myPizza = new Pizza(["onion", "pepperoni"], "medium", 11);
-Expected Output: Pizza { toppings: ["onion", "pepperoni"], "medium", 11}
+Code: const myPizza.toppingCost();
+Expected Output: 11
