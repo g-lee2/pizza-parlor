@@ -1,3 +1,4 @@
+let myPizza = new Pizza();
 function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
@@ -5,6 +6,6 @@ function Pizza(toppings, size) {
 }
 
 Pizza.prototype.toppingCost = function() {
-   this.price += (0.5 * Pizza.toppings.length);
-   return this.price;
+  this.price += (0.5 * myPizza.toppings.length);
+  return this.price;
 }
