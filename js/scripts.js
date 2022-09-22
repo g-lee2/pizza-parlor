@@ -1,4 +1,3 @@
-const myPizza = new Pizza();
 function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
@@ -6,10 +5,10 @@ function Pizza(toppings, size) {
 }
 
 Pizza.prototype.toppingCost = function() {
-  return 0.5 * myPizza.toppings.length;
+  return 0.5 * Pizza.toppings.length;
 }
 
-Pizza.prototype.sizeCost = function() {
+Pizza.prototype.totalCost = function() {
   if (this.size === "small") {
     this.price += 2;
     return this.price;
@@ -26,7 +25,7 @@ Pizza.prototype.sizeCost = function() {
 }
 
 Pizza.prototype.totalCost = function() {
-  const total = myPizza.toppingCost() + myPizza.sizeCost();
+  const total = Pizza.toppingCost() + Pizza.sizeCost();
   return total;
 }
 
@@ -38,9 +37,13 @@ window.addEventListener("load", function() {
 function handleFormSubmission(event) {
   event.preventDefault();
   
-  const toppingSelection = document.querySelector("input[name='toppings']:checked").value;
-  const sizeSelection = document.querySelector("input[name='size']:checked").value;
+  let toppingSelectionOne = document.querySelector("input[name='toppings-1']:checked").value;
+  const sizeSelection = document.getElementById("size").value;
 
-  let myPizza = new Pizza(toppingSelection, sizeSelection);
-  const pizzaTotalPrice = ticket.totalCost();
+  let myPizza = new Pizza(toppingSelectionOne, sizeSelection);
+  const pizzaTotalPrice = myPizza.totalCost();
+
+  document.getElementsByClassName("pizza-size").innerText = sizeSelection;
+  document.getElementsByClassName("toppings-list").innerText = toppingSelectionOne;
+  document.getElementsByClassName("total-cost").innerText = "$" + pizzaTotalPrice;
 }
