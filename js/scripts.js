@@ -30,3 +30,17 @@ Pizza.prototype.totalCost = function() {
   return total;
 }
 
+window.addEventListener("load", function() {
+  let form = document.querySelector("form")
+  form.addEventListener("submit", handleFormSubmission)
+});
+
+function handleFormSubmission(event) {
+  event.preventDefault();
+  
+  const toppingSelection = document.querySelector("input[name='toppings']:checked").value;
+  const sizeSelection = document.querySelector("input[name='size']:checked").value;
+
+  let myPizza = new Pizza(toppingSelection, sizeSelection);
+  const pizzaTotalPrice = ticket.totalCost();
+}
