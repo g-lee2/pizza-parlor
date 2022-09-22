@@ -4,29 +4,20 @@ function Pizza(toppings, size) {
   this.price = 10;
 }
 
-Pizza.prototype.toppingCost = function() {
-  return 0.5 * Pizza.toppings.length;
-}
-
 Pizza.prototype.totalCost = function() {
+  if (this.toppings === true) {
+    this.price += 1;
+  }
   if (this.size === "small") {
     this.price += 2;
-    return this.price;
   } else if (this.size === "medium") {
-    this.price += 4;
-    return this.price; 
+    this.price += 4; 
   } else if (this.size === "large") {
     this.price += 6;
-    return this.price; 
-  } else {
+  } else if (this.size === "x-large") {
     this.price += 8;
-    return this.price; 
   }
-}
-
-Pizza.prototype.totalCost = function() {
-  const total = Pizza.toppingCost() + Pizza.sizeCost();
-  return total;
+  return this.price;
 }
 
 window.addEventListener("load", function() {
@@ -37,13 +28,13 @@ window.addEventListener("load", function() {
 function handleFormSubmission(event) {
   event.preventDefault();
   
-  let toppingSelectionOne = document.querySelector("input[name='toppings-1']:checked").value;
-  const sizeSelection = document.getElementById("size").value;
+  const toppingSelection = document.querySelector("input[name='toppings-1']:checked").value;
+  const sizeSelection = document.querySelector("input[name='size']:checked").value;
 
-  let myPizza = new Pizza(toppingSelectionOne, sizeSelection);
+  let myPizza = new Pizza(toppingSelection, sizeSelection);
   const pizzaTotalPrice = myPizza.totalCost();
 
   document.getElementsByClassName("pizza-size").innerText = sizeSelection;
-  document.getElementsByClassName("toppings-list").innerText = toppingSelectionOne;
+  document.getElementsByClassName("toppings-list").innerText = toppingSelection;
   document.getElementsByClassName("total-cost").innerText = "$" + pizzaTotalPrice;
 }
