@@ -23,3 +23,11 @@ Code:
 const myPizza = new Pizza(["onion", "pepperoni"], "medium");
 const myPizza.sizeCost();
 Expected Output: 14
+
+Describe: Pizza.prototype.totalCost = function()
+
+Test: "It should return the new price of the pizza depending on the toppings selected and the size"
+Code: 
+const myPizza = new Pizza(["onion", "pepperoni"], "medium");
+const myPizza.totalCost();
+Expected Output: 15
