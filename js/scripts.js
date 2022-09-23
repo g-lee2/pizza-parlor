@@ -4,31 +4,21 @@ function Pizza(toppings, size) {
   this.price = 10;
 }
 
-// Pizza.prototype.toppingCost = function() {
-//   return 0.5 * this.toppings.length;
-// }
-
 Pizza.prototype.sizeCost = function() {
   if (this.size === "small") {
-    this.price += 2; 
+    this.price += 1; 
     return this.price;
   } else if (this.size === "medium") {
-    this.price += 4; 
+    this.price += 3; 
     return this.price; 
   } else if (this.size === "large") {
-    this.price += 6; 
+    this.price += 5; 
     return this.price; 
   } else {
-    this.price += 8; 
+    this.price += 7; 
     return this.price; 
   }
 }
-
-Pizza.prototype.totalCost = function() {
-  return 1 + this.sizeCost();
-}
-
-
 
 window.addEventListener("load", function() {
   let form = document.querySelector("form")
@@ -37,7 +27,6 @@ window.addEventListener("load", function() {
 
 function handleFormSubmission(event) {
   event.preventDefault();
-
   const toppingArray = []
   const toppingSelection = document.getElementsByName("topping");
   for (let i = 0; i < toppingSelection.length; i++) {
@@ -46,13 +35,10 @@ function handleFormSubmission(event) {
     }
   }
   const sizeSelection = document.querySelector("input[name='size']:checked").value;
-
-  let myPizza = new Pizza(toppingSelection, sizeSelection);
-  const pizzaTotalPrice = myPizza.totalCost();
-  console.log(myPizza.toppings)
-  console.log(myPizza.size)
-
-  document.querySelector("span.pizza-size").innerText = sizeSelection;
-  document.querySelector("span.toppings-list").innerText = toppingArray.join(", ");
+  const myPizza = new Pizza(toppingSelection, sizeSelection);
+  const pizzaTotalPrice = myPizza.sizeCost() + (toppingArray.length * 0.5);
+  document.querySelector("span.pizza-size").innerText = sizeSelection.toUpperCase();
+  document.querySelector("span.toppings-list").innerText = toppingArray.join(", ").toUpperCase();
   document.querySelector("span.total-cost").innerText = "$" + pizzaTotalPrice;
+  document.getElementById("final-order").removeAttribute("class");
 }
