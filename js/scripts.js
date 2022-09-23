@@ -21,8 +21,9 @@ Pizza.prototype.sizeCost = function() {
 }
 
 window.addEventListener("load", function() {
-  let form = document.querySelector("form")
-  form.addEventListener("submit", handleFormSubmission)
+  document.getElementById("order-form").removeAttribute("class");
+  let form = document.querySelector("form");
+  form.addEventListener("submit", handleFormSubmission);
 });
 
 function handleFormSubmission(event) {
@@ -40,5 +41,6 @@ function handleFormSubmission(event) {
   document.querySelector("span.pizza-size").innerText = sizeSelection.toUpperCase();
   document.querySelector("span.toppings-list").innerText = toppingArray.join(", ").toUpperCase();
   document.querySelector("span.total-cost").innerText = "$" + pizzaTotalPrice;
+  document.getElementById("order-form").setAttribute("class", "hidden");
   document.getElementById("final-order").removeAttribute("class");
 }
