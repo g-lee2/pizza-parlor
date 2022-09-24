@@ -13,8 +13,8 @@
 		  <h1>Pizza Parlor</h1>
     </div>
     <div id="order-form" class="hidden">
-      <h1>Order Form:</h1><hr>
-      <form id="select-form">
+      <h1>Order Form</h1><hr>
+      <form>
         <h2>Choose a size:</h2>
         <label>
           <input type="radio" name="size" value="small" checked>
@@ -32,9 +32,8 @@
           <input type="radio" name="size" value="x-large">
           X-Large
         </label><br><hr>
-        <h2>Choose your topping:</h2>
-        <h4>Each topping is an additional $0.50!</h4>
-        <h4>You Selected: <span class="selected-toppings"></span></h4>
+        <h2>Choose your topping(s):</h2>
+        <h4>(Each topping is an additional $0.50)</h4>
         <input type="checkbox" id="onion-toppings" name="topping" value="onion">
         <label for="onion-topping">Onions</label><br>
         <input type="checkbox" id="spinach-topping" name="topping" value="spinach">
@@ -55,7 +54,8 @@
       </form> 
     </div>
     <div id="final-order" class="hidden"> 
-      <h1>Thank you! Your order was submitted!</h1><hr>
+      <h1>Thank you!</h1>
+      <h1>Your order was submitted!</h1><hr>
       <h1>Order Summary:</h1>
       <img src="img/pizza3.png" alt="pizza">
       <p>Pizza Size: <span class="pizza-size"></span></p>
