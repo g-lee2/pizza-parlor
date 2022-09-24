@@ -19,7 +19,7 @@ Pizza.prototype.sizeCost = function() {
 
 window.addEventListener("load", function() {
   document.getElementById("order-form").removeAttribute("class");
-  let form = document.querySelector("form");
+  const form = document.querySelector("form");
   form.addEventListener("submit", handleFormSubmission);
 });
 
@@ -27,11 +27,11 @@ function handleFormSubmission(event) {
   event.preventDefault();
   const toppingArray = []
   const toppingSelection = document.getElementsByName("topping");
-  for (let i = 0; i < toppingSelection.length; i++) {
-    if (toppingSelection[i].checked === true) {
-      toppingArray.push(toppingSelection[i].value);
-    }
-  }
+    for (let i = 0; i < toppingSelection.length; i++) {
+      if (toppingSelection[i].checked === true) {
+        toppingArray.push(toppingSelection[i].value);
+      }
+    };
   const sizeSelection = document.querySelector("input[name='size']:checked").value;
   const myPizza = new Pizza(toppingSelection, sizeSelection);
   const pizzaTotalPrice = myPizza.sizeCost() + (toppingArray.length * 0.5);
