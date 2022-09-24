@@ -27,7 +27,7 @@ h1 {
 
 
 #order-form {
-  background-color: rgb(248, 234, 218);
+  background-color: rgb(255, 255, 255);
   max-width: 500px;
   margin: 200px auto;
   padding: 30px 20px;
@@ -36,7 +36,7 @@ h1 {
 }
 
 #final-order {
-  background-color: rgb(248, 234, 218);
+  background-color: rgb(255, 255, 255);
   max-width: 500px;
   margin: 200px auto;
   padding: 30px 20px;
